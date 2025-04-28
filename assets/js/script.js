@@ -82,30 +82,30 @@ function type() {
 }
 
 // Start typing effect when page loads
-
-// Tilt effect for project cards
-document.querySelectorAll(".tilt").forEach((element) => {
-  element.addEventListener("mousemove", (e) => {
-    const { left, top, width, height } = element.getBoundingClientRect();
-    const x = (e.clientX - left) / width;
-    const y = (e.clientY - top) / height;
-
-    const tiltX = (y - 0.5) * 20;
-    const tiltY = (x - 0.5) * -20;
-
-    element.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d(1.05, 1.05, 1.05)`;
-  });
-
-  element.addEventListener("mouseleave", () => {
-    element.style.transform =
-      "perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)";
-  });
-});
-
-// Particles.js implementation for background effect
 document.addEventListener("DOMContentLoaded", () => {
+  type();
+
+  // Tilt effect for project cards
+  document.querySelectorAll(".tilt").forEach((element) => {
+    element.addEventListener("mousemove", (e) => {
+      const { left, top, width, height } = element.getBoundingClientRect();
+      const x = (e.clientX - left) / width;
+      const y = (e.clientY - top) / height;
+
+      const tiltX = (y - 0.5) * 20;
+      const tiltY = (x - 0.5) * -20;
+
+      element.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d(1.05, 1.05, 1.05)`;
+    });
+
+    element.addEventListener("mouseleave", () => {
+      element.style.transform =
+        "perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)";
+    });
+  });
+
+  // Particles.js implementation for background effect
   if (document.getElementById("particles-js")) {
-    // Simple particle system implementation
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
     const particlesContainer = document.getElementById("particles-js");
@@ -180,4 +180,113 @@ document.addEventListener("DOMContentLoaded", () => {
       canvas.height = particlesContainer.offsetHeight;
     });
   }
+
+  // LeetCode Stats Toggle with Real Data Fetching
+
+  // Skills Data
+  const skills = [
+    {
+      name: "ReactJS",
+      icon: "https://img.icons8.com/external-tal-revivo-color-tal-revivo/48/000000/external-react-a-javascript-library-for-building-user-interfaces-logo-color-tal-revivo.png",
+    },
+    {
+      name: "ExpressJS",
+      icon: "https://img.icons8.com/fluency/48/000000/node-js.png",
+    },
+    {
+      name: "NodeJS",
+      icon: "https://img.icons8.com/color/48/000000/nodejs.png",
+    },
+    {
+      name: "Redux",
+      icon: "https://img.icons8.com/color/48/000000/redux.png",
+    },
+    {
+      name: "Flask",
+      icon: "https://img.icons8.com/color/48/000000/flask.png",
+    },
+    {
+      name: "Spring Boot",
+      icon: "https://img.icons8.com/color/48/000000/spring-logo.png",
+    },
+    {
+      name: "Tailwind CSS",
+      icon: "https://img.icons8.com/color/48/000000/tailwindcss.png",
+    },
+    {
+      name: "Bootstrap",
+      icon: "https://img.icons8.com/color/48/000000/bootstrap.png",
+    },
+    {
+      name: "HTML5",
+      icon: "https://img.icons8.com/color/48/000000/html-5--v1.png",
+    },
+    {
+      name: "CSS3",
+      icon: "https://img.icons8.com/color/48/000000/css3.png",
+    },
+    {
+      name: "JavaScript",
+      icon: "https://img.icons8.com/color/48/000000/javascript--v1.png",
+    },
+    {
+      name: "Java",
+      icon: "https://img.icons8.com/color/48/000000/java-coffee-cup-logo--v1.png",
+    },
+    {
+      name: "Python",
+      icon: "https://img.icons8.com/color/48/000000/python--v1.png",
+    },
+    {
+      name: "C",
+      icon: "https://img.icons8.com/color/48/000000/c-programming.png",
+    },
+    {
+      name: "Git",
+      icon: "https://img.icons8.com/color/48/000000/git.png",
+    },
+    {
+      name: "MongoDB",
+      icon: "https://img.icons8.com/color/48/000000/mongodb.png",
+    },
+    {
+      name: "MySQL",
+      icon: "https://img.icons8.com/color/48/000000/mysql-logo.png",
+    },
+    {
+      name: "Heroku",
+      icon: "https://img.icons8.com/color/48/000000/heroku.png",
+    },
+    {
+      name: "jQuery",
+      icon: "https://img.icons8.com/ios-filled/48/1169ae/jquery.png",
+    },
+    {
+      name: "GitHub",
+      icon: "https://img.icons8.com/color/48/000000/github--v1.png",
+    },
+    {
+      name: "WordPress",
+      icon: "https://img.icons8.com/color/48/000000/wordpress.png",
+    },
+  ];
+
+  // Function to create skill cards
+  function createSkillCards(skills) {
+    const skillsContainer = document.getElementById("skillsContainer");
+    skillsContainer.innerHTML = ""; // Clear existing content
+
+    skills.forEach((skill) => {
+      const skillCard = document.createElement("div");
+      skillCard.className = "skill-card";
+      skillCard.innerHTML = `
+              <img src="${skill.icon}" alt="${skill.name} icon">
+              <div class="info"><span>${skill.name}</span></div>
+            `;
+      skillsContainer.appendChild(skillCard);
+    });
+  }
+
+  // Initialize skill cards
+  createSkillCards(skills);
 });
