@@ -118,44 +118,7 @@
         <i class="fas fa-laptop-code"></i> Skills & <span>Abilities</span>
       </h2>
       <div class="container">
-        <div class="row" id="skillsContainer">
-          <div class="bar">
-            <div class="info"><span>Java</span></div>
-          </div>
-          <div class="bar">
-            <div class="info"><span>Python</span></div>
-          </div>
-          <div class="bar">
-            <div class="info"><span>C</span></div>
-          </div>
-          <div class="bar">
-            <div class="info"><span>React.js</span></div>
-          </div>
-          <div class="bar">
-            <div class="info"><span>Redux</span></div>
-          </div>
-          <div class="bar">
-            <div class="info"><span>Node.js</span></div>
-          </div>
-          <div class="bar">
-            <div class="info"><span>Express.js</span></div>
-          </div>
-          <div class="bar">
-            <div class="info"><span>Spring Boot</span></div>
-          </div>
-          <div class="bar">
-            <div class="info"><span>Flask</span></div>
-          </div>
-          <div class="bar">
-            <div class="info"><span>MongoDB</span></div>
-          </div>
-          <div class="bar">
-            <div class="info"><span>SQL</span></div>
-          </div>
-          <div class="bar">
-            <div class="info"><span>Git, Postman, Cloudinary</span></div>
-          </div>
-        </div>
+        <div class="row" id="skillsContainer"></div>
       </div>
     </section>
 
@@ -522,6 +485,113 @@
             button.textContent = "Show LeetCode Stats";
           }
         });
+
+      // Skills Data
+      const skills = [
+        {
+          name: "ReactJS",
+          icon: "https://img.icons8.com/external-tal-revivo-color-tal-revivo/48/000000/external-react-a-javascript-library-for-building-user-interfaces-logo-color-tal-revivo.png",
+        },
+        {
+          name: "ExpressJS",
+          icon: "https://img.icons8.com/fluency/48/000000/node-js.png",
+        },
+        {
+          name: "NodeJS",
+          icon: "https://img.icons8.com/color/48/000000/nodejs.png",
+        },
+        {
+          name: "Redux",
+          icon: "https://img.icons8.com/color/48/000000/redux.png",
+        },
+        {
+          name: "Flask",
+          icon: "https://img.icons8.com/color/48/000000/flask.png",
+        },
+        {
+          name: "Spring Boot",
+          icon: "https://img.icons8.com/color/48/000000/spring-logo.png",
+        },
+        {
+          name: "Tailwind CSS",
+          icon: "https://img.icons8.com/color/48/000000/tailwindcss.png",
+        },
+        {
+          name: "Bootstrap",
+          icon: "https://img.icons8.com/color/48/000000/bootstrap.png",
+        },
+        {
+          name: "HTML5",
+          icon: "https://img.icons8.com/color/48/000000/html-5--v1.png",
+        },
+        {
+          name: "CSS3",
+          icon: "https://img.icons8.com/color/48/000000/css3.png",
+        },
+        {
+          name: "JavaScript",
+          icon: "https://img.icons8.com/color/48/000000/javascript--v1.png",
+        },
+        {
+          name: "Java",
+          icon: "https://img.icons8.com/color/48/000000/java-coffee-cup-logo--v1.png",
+        },
+        {
+          name: "Python",
+          icon: "https://img.icons8.com/color/48/000000/python--v1.png",
+        },
+        {
+          name: "C",
+          icon: "https://img.icons8.com/color/48/000000/c-programming.png",
+        },
+        {
+          name: "Git",
+          icon: "https://img.icons8.com/color/48/000000/git.png",
+        },
+        {
+          name: "MongoDB",
+          icon: "https://img.icons8.com/color/48/000000/mongodb.png",
+        },
+        {
+          name: "MySQL",
+          icon: "https://img.icons8.com/color/48/000000/mysql-logo.png",
+        },
+        {
+          name: "Heroku",
+          icon: "https://img.icons8.com/color/48/000000/heroku.png",
+        },
+        {
+          name: "jQuery",
+          icon: "https://img.icons8.com/ios-filled/48/1169ae/jquery.png",
+        },
+        {
+          name: "GitHub",
+          icon: "https://img.icons8.com/glyph-neue/48/ffffff/github.png",
+        },
+        {
+          name: "WordPress",
+          icon: "https://img.icons8.com/color/48/000000/wordpress.png",
+        },
+      ];
+
+      // Function to create skill cards
+      function createSkillCards(skills) {
+        const skillsContainer = document.getElementById("skillsContainer");
+        skillsContainer.innerHTML = ""; // Clear existing content
+
+        skills.forEach((skill) => {
+          const skillCard = document.createElement("div");
+          skillCard.className = "skill-card";
+          skillCard.innerHTML = `
+            <img src="${skill.icon}" alt="${skill.name} icon">
+            <div class="info"><span>${skill.name}</span></div>
+          `;
+          skillsContainer.appendChild(skillCard);
+        });
+      }
+
+      // Initialize skill cards
+      createSkillCards(skills);
     </script>
 
     <style>
@@ -558,6 +628,22 @@
       }
       .visit-profile-button:hover {
         background-color: #e09113;
+      }
+      .skill-card {
+        display: flex;
+        align-items: center;
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .skill-card img {
+        margin-right: 10px;
+      }
+      .skill-card .info {
+        display: flex;
+        align-items: center;
       }
     </style>
   </body>
