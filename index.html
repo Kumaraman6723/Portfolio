@@ -436,45 +436,47 @@
 
               // Fill the stats
               statsSection.innerHTML = `
-                <h3>My LeetCode Stats</h3>
-                <div class="stats-container">
-                    <div class="stat-box">
-                        <div class="stat-title">Problems Solved</div>
-                        <div class="stat-value">${data.totalSolved}</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-title">Easy Problems Solved</div>
-                        <div class="stat-value">${data.easySolved}</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-title">Medium Problems Solved</div>
-                        <div class="stat-value">${data.mediumSolved}</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-title">Hard Problems Solved</div>
-                        <div class="stat-value">${data.hardSolved}</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-title">Contest Rating</div>
-                        <div class="stat-value">${
-                          data.contestRating || "N/A"
-                        }</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-title">Global Rank</div>
-                        <div class="stat-value">${
-                          data.ranking ? `Top ${data.ranking}` : "N/A"
-                        }</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-title">Acceptance Rate</div>
-                        <div class="stat-value">${data.acceptanceRate}%</div>
-                    </div>
-                </div>
-                <div style="margin-top: 15px;">
-                    <a href="https://leetcode.com/${username}/" target="_blank" class="visit-profile-button">Visit Profile</a>
-                </div>
-            `;
+                      <h3>My LeetCode Stats</h3>
+                      <div class="stats-container">
+                          <div class="stat-box">
+                              <div class="stat-title">Problems Solved</div>
+                              <div class="stat-value">${data.totalSolved}</div>
+                          </div>
+                          <div class="stat-box">
+                              <div class="stat-title">Easy Problems Solved</div>
+                              <div class="stat-value">${data.easySolved}</div>
+                          </div>
+                          <div class="stat-box">
+                              <div class="stat-title">Medium Problems Solved</div>
+                              <div class="stat-value">${data.mediumSolved}</div>
+                          </div>
+                          <div class="stat-box">
+                              <div class="stat-title">Hard Problems Solved</div>
+                              <div class="stat-value">${data.hardSolved}</div>
+                          </div>
+                          <div class="stat-box">
+                              <div class="stat-title">Contest Rating</div>
+                              <div class="stat-value">${
+                                data.contestRating || "N/A"
+                              }</div>
+                          </div>
+                          <div class="stat-box">
+                              <div class="stat-title">Global Rank</div>
+                              <div class="stat-value">${
+                                data.ranking ? `Top ${data.ranking}` : "N/A"
+                              }</div>
+                          </div>
+                          <div class="stat-box">
+                              <div class="stat-title">Acceptance Rate</div>
+                              <div class="stat-value">${
+                                data.acceptanceRate
+                              }%</div>
+                          </div>
+                      </div>
+                      <div style="margin-top: 15px;">
+                          <a href="https://leetcode.com/${username}/" target="_blank" class="visit-profile-button">Visit Profile</a>
+                      </div>
+                  `;
             } catch (error) {
               statsSection.innerHTML =
                 "<h3>Failed to load LeetCode Stats. Please try again later.</h3>";
@@ -566,8 +568,9 @@
         },
         {
           name: "GitHub",
-          icon: "https://img.icons8.com/glyph-neue/48/ffffff/github.png",
+          icon: "https://img.icons8.com/color/48/000000/github--v1.png",
         },
+
         {
           name: "WordPress",
           icon: "https://img.icons8.com/color/48/000000/wordpress.png",
@@ -583,9 +586,9 @@
           const skillCard = document.createElement("div");
           skillCard.className = "skill-card";
           skillCard.innerHTML = `
-            <img src="${skill.icon}" alt="${skill.name} icon">
-            <div class="info"><span>${skill.name}</span></div>
-          `;
+                  <img src="${skill.icon}" alt="${skill.name} icon">
+                  <div class="info"><span>${skill.name}</span></div>
+                `;
           skillsContainer.appendChild(skillCard);
         });
       }
